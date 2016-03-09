@@ -1,0 +1,23 @@
+.black {
+  color: black; }
+
+/*******************************************************************************
+                                TEXT
+*******************************************************************************/
+.issue {
+  font-size: 0.8rem; }
+
+.issue-title {
+  text-transform: capitalize;
+  font-weight: bold; }
+
+.issue-company {
+  text-transform: uppercase; }
+
+/*******************************************************************************
+                                ISSUES
+*******************************************************************************/
+.issue {
+  border: 1px solid green;
+  vertical-align: middle;
+  margin: 0.5rem 0; }
