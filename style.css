@@ -1,23 +1,72 @@
-.black {
-  color: black; }
+/*******************************************************************************
+                                GENERAL
+*******************************************************************************/
+.row {
+  max-width: 100%; }
 
 /*******************************************************************************
-                                TEXT*
+                                NAVIGATION
 *******************************************************************************/
-.issue {
-  font-size: 0.8rem; }
+.menu {
+  background-color: #5d83aa;
+  padding: 1rem 3rem;
+  height: auto; }
+  .menu .inline-list {
+    text-align: center; }
+    .menu .inline-list li {
+      float: none;
+      display: inline-block;
+      margin: 0 1em; }
+    .menu .inline-list a {
+      color: #fff;
+      padding-bottom: 0.5rem; }
+      .menu .inline-list a:hover {
+        color: #ff9933;
+        transition: all .3s ease-in-out; }
+    .menu .inline-list .active a {
+      color: #ff9933; }
+  .menu .account {
+    position: absolute;
+    top: 3%;
+    right: 3%; }
+    .menu .account a, .menu .account i {
+      color: #fff; }
+  @media only screen and (min-width: 40.063em) {
+    .menu {
+      height: 4rem; }
+      .menu .inline-list {
+        float: left;
+        margin: 0 0 0 1.5rem; }
+      .menu a:hover {
+        border-bottom: 2px solid #ff9933; } }
+  .menu .account-action {
+    float: right;
+    margin: -.75rem 0 0 0; }
+    .menu .account-action li {
+      margin-left: .2rem; }
+    .menu .account-action a {
+      padding: 0.75rem 1rem; }
+    .menu .account-action a.signup {
+      font-weight: bold;
+      background-color: #6d8fb3;
+      border-radius: 3px; }
 
-.issue-title {
-  text-transform: capitalize;
-  font-weight: bold; }
-
-.issue-company {
-  text-transform: uppercase; }
+.name {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  color: #fff; }
+  .name i {
+    color: #ff9933;
+    margin-right: 0.5rem; }
+  @media only screen and (min-width: 40.063em) {
+    .name {
+      float: left; } }
 
 /*******************************************************************************
-                                ISSUES*
+                                SIDEBAR
 *******************************************************************************/
-.issue {
-  border: 1px solid #333;
-  vertical-align: middle;
-  margin: 0.5rem 0; }
+#sidebar {
+  height: 100%;
+  border-left: 1px solid #999; }
