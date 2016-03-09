@@ -3,7 +3,6 @@ var React = require('react');
 var Issue = React.createClass({
     getInitialState: function(){
         status:this.props.d.status,
-        assignedTo:''
     },
     render: function(){
         return (
