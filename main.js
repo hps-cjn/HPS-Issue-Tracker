@@ -5,7 +5,7 @@ var IssueList = require('./IssueList.jsx');
 var App = React.createClass({displayName: "App",
   render: function() {
     return (
-        React.createElement("div", null, 
+        React.createElement("div", null,
             React.createElement("h1", null, "Boom.")
         )
     );
@@ -19865,10 +19865,10 @@ var Issue = React.createClass({displayName: "Issue",
     },
     render: function(){
         return (
-            React.createElement("div", {className: "row issue"}, 
-                React.createElement("div", {className: "columns large-3 issue-title"}, this.props.d.title), 
-                React.createElement("div", {className: "columns large-2 issue-status"}, this.props.d.status), 
-                React.createElement("div", {className: "columns large-5 issue-description"}, this.props.d.description), 
+            React.createElement("div", {className: "row issue"},
+                React.createElement("div", {className: "columns large-3 issue-title"}, this.props.d.title),
+                React.createElement("div", {className: "columns large-2 issue-status"}, this.props.d.status),
+                React.createElement("div", {className: "columns large-5 issue-description"}, this.props.d.description),
                 React.createElement("div", {className: "columns large-2 issue-company"}, this.props.d.company)
             )
         );
@@ -19892,8 +19892,8 @@ var IssueList = React.createClass({displayName: "IssueList",
     },
     render: function(){
         return (
-            React.createElement("div", null, 
-                React.createElement("div", {className: "columns large-12"}, 
+            React.createElement("div", null,
+                React.createElement("div", {className: "columns large-12"},
                     this.state.data.map(function(item){
                         return (
                             React.createElement(Issue, {key: item._id, d: item})
