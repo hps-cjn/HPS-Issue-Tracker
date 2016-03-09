@@ -6,9 +6,6 @@ var App = React.createClass({
     return (
         <div>
             <h1>Boom.</h1>
-            <p>
-                how you like that?
-            </p>
         </div>
     );
   }
