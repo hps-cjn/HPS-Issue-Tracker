@@ -4,10 +4,15 @@ var IssueList = require('./IssueList.jsx');
 var App = React.createClass({
   render: function() {
     return (
-        <IssueList />
+        <div>
+            <h1>Boom.</h1>
+            <p>
+                how you like that?
+            </p>
+        </div>
     );
   }
 });
 
-var element = React.createElement(App, {});
-React.render(element, document.getElementById('main'));
+var boom = React.createElement(App, {});
+React.render(boom, document.getElementById('main'));
