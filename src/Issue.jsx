@@ -2,7 +2,10 @@ var React = require('react');
 
 var Issue = React.createClass({
     getInitialState: function(){
-        status:this.props.d.status,
+        return {
+            status:this.props.d.status
+        }
+
     },
     render: function(){
         return (
