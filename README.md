@@ -1,12 +1,13 @@
 ## To-Do Items
-* Identify layout
-    * Desktop
-    * Mobile
-* Identify data structure
-    * Database type
-    * Database structure
-* API Endpoints
-    * Resource type
-    * Endpoints
-* Configure email (smtp/inbox)
-* Everything else
+- [ ] Identify layout
+    - [ ] Desktop
+    - [ ] Mobile
+- [ ] Identify data structure
+    - [ ] Database type
+    - [ ] Database structure
+- [ ] API Endpoints
+    - [ ] Resource type
+    - [ ] Endpoints
+- [ ] Configure email (smtp/inbox)
+- [ ] Everything else
+    - [x] Turn this list into checkboxes
