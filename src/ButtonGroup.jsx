@@ -4,7 +4,7 @@ var ButtonGroup = React.createClass({
   getDefaultProps: function() {
     return {
       classes: ""
-    }
+    };
   },
   render: function() {
     return (
