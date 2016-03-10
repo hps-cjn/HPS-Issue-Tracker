@@ -6,9 +6,15 @@
   max-width: 100%;
 }
 
+@mixin y-center() {
+  position:relative;
+  top:50%;
+  transform: translateY(20%);
+}
 
-
-
+.y-center {
+  @include y-center();
+}
 /*******************************************************************************
                                 NAVIGATION
 *******************************************************************************/
@@ -107,4 +113,8 @@ $highlight-color: #ff9933;
     height:100%;
     border-left: 1px solid #999;
 
+}
+
+.button {
+  background-color: $background-color;
 }
