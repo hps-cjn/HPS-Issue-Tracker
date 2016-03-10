@@ -6,15 +6,15 @@ var TrackerHeading = React.createClass({
   render: function() {
     return (
         <div className='row'>
-          <div className="large-3 columns y-center">
+          <div className='large-3 columns y-center'>
             <h3>{this.props.title}</h3>
           </div>
-          <div className="large-9 columns y-center">
-            <ButtonGroup classes="expanded">
-              <Button><i className="fi-pencil"></i> File an Issue</Button>
-              <Button><i className="fi-cloud"></i> Synergize Cloud</Button>
-              <Button><i className="fi-torso"></i> Click Here If You're Eric</Button>
-              <Button><i className="fi-star"></i> I'm Feeling Lucky</Button>
+          <div className='large-9 columns y-center'>
+            <ButtonGroup classes='expanded'>
+              <Button text='File an Issue' icon='pencil' />
+              <Button text='Synergize Cloud' icon='cloud' />
+              <Button text="Click Here If You're Eric" icon='torso' />
+              <Button text="I'm Feeling Lucky" icon='star' />
             </ButtonGroup>
           </div>
         </div>
