@@ -7,7 +7,6 @@ var App = React.createClass({
     return (
         <div>
           <TrackerHeading />
-          <hr></hr>
           <IssueList></IssueList>
         </div>
     );
