@@ -1,4 +1,5 @@
 var React = require('react');
+var Icon = require('./Icon.jsx');
 
 var Button = React.createClass({
   getDefaultProps: function() {
@@ -12,7 +13,7 @@ var Button = React.createClass({
   render: function() {
     return (
       <a href={this.props.href} className={'button ' + this.props.className} title={this.props.text}>
-        {this.props.text}
+        <Icon name={this.props.icon} /> {this.props.text}
       </a>
     );
   }
