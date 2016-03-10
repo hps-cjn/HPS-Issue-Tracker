@@ -115,7 +115,12 @@ $highlight-color: #ff9933;
                                 FOUNDATION OVERRIDES
 *******************************************************************************/
 .button {
-  background-color: #5d83aa; }
+  background-color: #5d83aa;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 /*******************************************************************************
                                 ISSUES

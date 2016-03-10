@@ -1,16 +1,19 @@
 var React = require('react');
+var Icon = require('./Icon.jsx');
 
 var Button = React.createClass({
   getDefaultProps: function() {
     return {
-      href: "javascript:void(0)",
-      className: ""
+      href: 'javascript:void(0)',
+      className: '',
+      text: 'Button',
+      icon: ''
     }
   },
   render: function() {
     return (
-      <a href={this.props.href} className={"button " + this.props.className}>
-        {this.props.children}
+      <a href={this.props.href} className={'button ' + this.props.className} title={this.props.text}>
+        <Icon name={this.props.icon} /> {this.props.text}
       </a>
     );
   }
