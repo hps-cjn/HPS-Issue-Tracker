@@ -1,12 +1,14 @@
 var React = require('react');
 
 var ButtonGroup = React.createClass({
-  getClass: function() {
-    return "button-group " + (this.props.classes || "");
+  getDefaultProps: function() {
+    return {
+      classes: ""
+    }
   },
   render: function() {
     return (
-      <div className={this.getClass()}>
+      <div className={"button-group " + this.props.classes}>
         {this.props.children}
       </div>
     );
