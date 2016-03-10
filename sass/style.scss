@@ -6,15 +6,11 @@
   max-width: 100%;
 }
 
-@mixin y-center() {
-  position:relative;
-  top:50%;
-  transform: translateY(20%);
-}
-
 .y-center {
-  @include y-center();
-}
+  position: relative;
+  top: 50%;
+  transform: translateY(20%); }
+
 /*******************************************************************************
                                 NAVIGATION
 *******************************************************************************/
@@ -119,8 +115,7 @@ $highlight-color: #ff9933;
                                 FOUNDATION OVERRIDES
 *******************************************************************************/
 .button {
-  background-color: $background-color;
-}
+  background-color: #5d83aa; }
 
 /*******************************************************************************
                                 ISSUES
@@ -128,5 +123,4 @@ $highlight-color: #ff9933;
 .issue {
   border: 1px solid #ddd;
   margin: 10px 0 10px 0;
-  padding: 5px 0 5px 0;
-}
+  padding: 5px 0 5px 0; }
