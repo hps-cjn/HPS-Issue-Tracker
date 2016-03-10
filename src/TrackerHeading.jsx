@@ -7,7 +7,7 @@ var TrackerHeading = React.createClass({
     return (
         <div className='row'>
           <div className="large-3 columns y-center">
-            <h3>Activity Feed</h3>
+            <h3>{this.props.title}</h3>
           </div>
           <div className="large-9 columns y-center">
             <ButtonGroup classes="expanded">

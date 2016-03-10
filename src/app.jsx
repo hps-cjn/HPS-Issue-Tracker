@@ -6,7 +6,7 @@ var App = React.createClass({
   render: function() {
     return (
         <div>
-          <TrackerHeading />
+          <TrackerHeading title="Project Feed" />
           <IssueList></IssueList>
         </div>
     );
