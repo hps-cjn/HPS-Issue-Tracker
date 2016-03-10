@@ -1,15 +1,15 @@
 var React = require('react');
 
 var Button = React.createClass({
-  getHref: function() {
-    return this.props.href || 'javascript:void(0)';
-  },
-  getClass: function() {
-    return "button " + (this.props.classes || "");
+  getDefaultProps: function() {
+    return {
+      href: "javascript:void(0)",
+      className: ""
+    }
   },
   render: function() {
     return (
-      <a href={this.getHref()} className={this.getClass()}>
+      <a href={this.props.href} className={"button " + this.props.className}>
         {this.props.children}
       </a>
     );
