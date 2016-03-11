@@ -5,11 +5,8 @@ var TrackerHeading = require('./TrackerHeading.jsx');
 var App = React.createClass({
   getInitialState: function() {
     return {
-      activeId: 'im breaking it'
+      activeId: ''
     }
-  },
-  componentDidMount: function() {
-
   },
   updateId: function(id) {
     this.replaceState({ activeId: id });
