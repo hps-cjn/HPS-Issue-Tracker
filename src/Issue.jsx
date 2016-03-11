@@ -5,7 +5,6 @@ var Issue = React.createClass({
         return {
             status:this.props.d.status
         }
-
     },
     handleClick: function() {
       EventSystem.publish('activeId.update', this.props.itemId);
