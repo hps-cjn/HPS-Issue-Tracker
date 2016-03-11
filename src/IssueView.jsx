@@ -1,6 +1,7 @@
 var React = require('react');
 var Icon = require('./Icon.jsx');
 var Button = require('./Button.jsx');
+var ButtonGroup = require('./ButtonGroup.jsx');
 
 var IssueView = React.createClass({
   render: function() {
@@ -25,9 +26,16 @@ var IssueView = React.createClass({
           <p>Reprehenderit officia labore enim occaecat reprehenderit proident non cupidatat. Irure pariatur irure eiusmod exercitation Lorem anim ea laboris velit velit veniam nulla ad magna. Qui deserunt sint esse ea.</p>
         </div>
         <div className='row'>
-          <div className='large-4'>
-            <Button text='Comment' icon='pencil' />
+          <div className='commentBox'>
+            <h6><strong>At 9:06AM Jeff Peterson posted:</strong></h6>
+            <p>Good idea @PeteJefferson! We should definitely have more cat pictures on the portal.</p>
           </div>
+        </div>
+        <div className='row'>
+          <ButtonGroup classes='expanded'>
+            <Button text='Comment' icon='pencil' />
+            <Button text='Load More Comments' icon='cloud' />
+          </ButtonGroup>
         </div>
       </div>
     );

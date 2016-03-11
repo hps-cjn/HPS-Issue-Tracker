@@ -136,6 +136,16 @@ $highlight-color: #ff9933;
   border: 1px solid black;
 }
 
+.commentBox {
+  outline: 1px solid #ddd;
+  margin: 10px 0 10px;
+  padding: 7px;
+}
+
+.commentBox p {
+  margin: 0;
+}
+
 /*******************************************************************************
                                 HANDY COLOR CLASSES
 *******************************************************************************/
