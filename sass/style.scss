@@ -128,4 +128,9 @@ $highlight-color: #ff9933;
 .issue {
   border: 1px solid #ddd;
   margin: 10px 0 10px 0;
-  padding: 5px 0 5px 0; }
+  padding: 5px 0 5px 0;
+}
+
+.issue.active {
+  border: 1px solid crimson;
+}
