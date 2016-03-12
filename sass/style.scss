@@ -126,11 +126,48 @@ $highlight-color: #ff9933;
                                 ISSUES
 *******************************************************************************/
 .issue {
-  border: 1px solid #ddd;
-  margin: 10px 0 10px 0;
-  padding: 5px 0 5px 0;
+    margin: 15px 0 10px 0;
+    padding: 5px 0 5px 0;
+    font-size:0.8em;
+    height:8em;
+    background: #f7f7f7;
+    color: #333;
+    border: none;
+    box-shadow: 0 5px 8px -6px rgba(0,0,0,.3);
+    overflow:hidden;
+
+
+
+}
+
+.Defect {
+    border-left: 6px solid crimson;
+}
+
+.Question {
+    border-left: 6px solid green;
+}
+
+.Change {
+    border-left: 6px solid blue;
+}
+
+.ToDo {
+    border-left: 6px solid #333;
+}
+
+.FutureEnhancement {
+    border-left: 6px solid #BF5700;
 }
 
 .issue.active {
-  border: 1px solid black;
+  box-shadow: 4px 6px 8px 4px rgba(0,0,0,.25);
+  position:relative;
+  top:-8px;
+  left:-5px;
+  z-index: 10;
+
+  .issue-title{
+      font-weight:bold
+  }
 }

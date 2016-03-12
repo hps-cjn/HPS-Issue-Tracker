@@ -9,6 +9,26 @@ var IssueList = React.createClass({
             data:i
         });
     },
+    fetchDataFromServer: function(callback){
+        var project = GetParameter('project');
+        if(project){
+            console.log(project);
+        }
+        $.ajax({
+             type: "GET",
+             dataType: "json",
+             url: "http://hpstracker.azurewebsites.net/api/issues/limited",
+             success: function(data){
+                callback(data);
+             }
+         });
+    },
+    componentWillMount: function(){
+        var list = this;
+        this.fetchDataFromServer(function(results){
+            list.setState({data:results});
+        });
+    },
     render: function(){
         var ai = this.props.activeId;
         return (
