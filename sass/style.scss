@@ -9,7 +9,8 @@
 .y-center {
   position: relative;
   top: 50%;
-  transform: translateY(20%); }
+  transform: translateY(20%);
+}
 
 /*******************************************************************************
                                 NAVIGATION
@@ -133,4 +134,25 @@ $highlight-color: #ff9933;
 
 .issue.active {
   border: 1px solid black;
+}
+
+.commentBox {
+  outline: 1px solid #ddd;
+  margin: 10px 0 10px;
+  padding: 7px;
+}
+
+.commentBox p {
+  margin: 0;
+}
+
+/*******************************************************************************
+                                HANDY COLOR CLASSES
+*******************************************************************************/
+.background {
+  background-color: $background-color;
+}
+
+.highlight {
+  background-color: $highlight-color;
 }
