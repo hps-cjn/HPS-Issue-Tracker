@@ -35,7 +35,7 @@ var IssueView = React.createClass({
         return (
               <div>
                 <div className='row y-center'>
-                  <h4><i className="fa fa-bug fa-2"></i> {this.state.d.issueTitle}</h4>
+                  <h4 className="issueHeading" title={this.state.d.issueTitle}><i className="fa fa-bug fa-2"></i> {this.state.d.issueTitle}</h4>
                 </div>
                 <div className='row'>
                   <span className="label highlight">{this.state.d.status}</span>
