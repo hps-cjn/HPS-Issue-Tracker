@@ -13,10 +13,20 @@
 }
 
 /*******************************************************************************
-                                NAVIGATION
+                                COLOR DEFINITIONS
 *******************************************************************************/
+
 $background-color: #5d83aa;
 $highlight-color: #ff9933;
+$red: #D50000;
+$orange: #EF6C00;
+$green: #43a047;
+$blue: #3f51b5;
+$purple: #9c27b0;
+$brown: #795548;
+/*******************************************************************************
+                                NAVIGATION
+*******************************************************************************/
 
 .menu {
   background-color: $background-color;
@@ -139,15 +149,15 @@ $highlight-color: #ff9933;
 }
 
 .Defect {
-    border-left: 6px solid crimson;
+    border-left: 6px solid $red;
 }
 
 .Question {
-    border-left: 6px solid green;
+    border-left: 6px solid $green;
 }
 
 .Change {
-    border-left: 6px solid blue;
+    border-left: 6px solid $blue;
 }
 
 .ToDo {
@@ -155,7 +165,7 @@ $highlight-color: #ff9933;
 }
 
 .FutureEnhancement {
-    border-left: 6px solid #BF5700;
+    border-left: 6px solid $orange;
 }
 
 .issue.active {
