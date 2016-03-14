@@ -11,13 +11,10 @@ var IssueList = React.createClass({
     },
     fetchDataFromServer: function(callback){
         var project = GetParameter('project');
-        if(project){
-            console.log(project);
-        }
         $.ajax({
              type: "GET",
              dataType: "json",
-             url: "http://hpstracker.azurewebsites.net/api/issues/limited",
+             url: "http://hpstracker.azurewebsites.net/api/issues/limited/?project=" + project,
              success: function(data){
                 callback(data);
              }

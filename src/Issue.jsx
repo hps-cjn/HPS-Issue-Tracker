@@ -33,7 +33,7 @@ var Issue = React.createClass({
                 <div className="columns large-3 issue-title">{this.props.d.issueTitle}</div>
                 <div className="columns large-2 issue-status">{this.props.d.status}</div>
                 <div className={"columns large-5 issue-description" + concat}>{descrSubstr}</div>
-                <div className="columns large-2 issue-assignedTo">{this.props.d.currentAssignedTo}</div>
+                <div className="columns large-2 issue-assignedTo">{this.props.d.currentAssignedTitle}</div>
             </div>
         );
     }
