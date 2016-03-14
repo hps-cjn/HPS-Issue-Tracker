@@ -3,6 +3,7 @@ var Icon = require('./Icon.jsx');
 var Button = require('./Button.jsx');
 var ButtonGroup = require('./ButtonGroup.jsx');
 var TimeAgo = require('react-timeago');
+var RibbonItem = require('./RibbonItem.jsx');
 
 var IssueView = React.createClass({
     getInitialState: function(){
@@ -38,9 +39,9 @@ var IssueView = React.createClass({
                   <h4 className="issueHeading" title={this.state.d.issueTitle}><i className="fa fa-bug fa-2"></i> {this.state.d.issueTitle}</h4>
                 </div>
                 <div className='row'>
-                  <span className="label highlight">{this.state.d.status}</span>
-                  <span className="label alert">{this.state.d.type}</span>
-                  <span className="label secondary">{this.state.d.priority}</span>
+                  <RibbonItem text={this.state.d.status} />
+                  <RibbonItem text={this.state.d.priority} />
+                  <RibbonItem text={this.state.d.type} />
                 </div>
                 <div className='row'>
                   <strong>{this.state.d.reportedBy}</strong> opened this issue <strong><TimeAgo date={this.state.d.dateReported} /></strong>

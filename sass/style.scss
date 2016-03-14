@@ -12,18 +12,30 @@
   transform: translateY(20%);
 }
 
+@mixin ellipsify() {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 /*******************************************************************************
                                 COLOR DEFINITIONS
 *******************************************************************************/
 
 $background-color: #5d83aa;
 $highlight-color: #ff9933;
-$red: #D50000;
+$red: #F44336;
+$pink: #E91E63;
 $orange: #EF6C00;
-$green: #43a047;
-$blue: #3f51b5;
-$purple: #9c27b0;
+$deepOrange: #FF5722;
+$green: #43A047;
+$blue: #2196F3;
+$indigo: #3F51B5;
+$purple: #9C27B0;
 $brown: #795548;
+$grey: #424242;
+$blueGrey: #607D8B;
 
 /*******************************************************************************
                                 NAVIGATION
@@ -128,10 +140,7 @@ $brown: #795548;
 *******************************************************************************/
 .button {
   background-color: #5d83aa;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  @include ellipsify();
 }
 
 /*******************************************************************************
@@ -162,7 +171,7 @@ $brown: #795548;
 }
 
 .ToDo {
-    border-left: 6px solid #333;
+    border-left: 6px solid $brown;
 }
 
 .FutureEnhancement {
@@ -192,10 +201,53 @@ $brown: #795548;
 }
 
 .issueHeading {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  @include ellipsify();
+}
+
+.ribbonItem {
+  font-size: 1.15rem;
+  text-align: center;
+  color: white;
+  padding: 3px 10px 3px 10px;
+  @include ellipsify();
+}
+
+.label-Defect {
+  background-color: $red;
+}
+.label-Question {
+  background-color: $green;
+}
+.label-Todo {
+  background-color: $indigo;
+}
+.label-Change {
+  background-color: $blue;
+}
+.label-FutureEnhancement {
+  background-color: $orange;
+}
+
+.label-High {
+  background-color: $deepOrange;
+}
+.label-Medium {
+  background-color: $purple;
+}
+.label-Low {
+  background-color: $brown;
+}
+
+.label-Open {
+  background-color: $brown;
+}
+.label-Closed,
+.label-Resolved {
+  background-color: $grey;
+}
+.label-Deferred,
+.label-OnHold {
+  background-color: $blueGrey;
 }
 /*******************************************************************************
                                 HANDY COLOR CLASSES
