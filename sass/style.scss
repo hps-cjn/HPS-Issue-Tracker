@@ -190,3 +190,24 @@ $highlight-color: #ff9933;
 .highlight {
   background-color: $highlight-color;
 }
+
+.commentBox {
+  outline: 1px solid #ddd;
+  margin: 10px 0 10px;
+  padding: 7px;
+}
+
+.commentBox p {
+  margin: 0;
+}
+
+/*******************************************************************************
+                                HANDY COLOR CLASSES
+*******************************************************************************/
+.background {
+  background-color: $background-color;
+}
+
+.highlight {
+  background-color: $highlight-color;
+}
