@@ -33,13 +33,14 @@ $red: #F44336;
 $pink: #E91E63;
 $orange: #EF6C00;
 $deepOrange: #FF5722;
-$green: #43A047;
+$green: #4CAF50;
 $blue: #2196F3;
 $indigo: #3F51B5;
 $purple: #9C27B0;
 $brown: #795548;
 $grey: #424242;
 $blueGrey: #607D8B;
+$cyan: #03A9F4;
 
 /*******************************************************************************
                                 NAVIGATION
@@ -247,18 +248,15 @@ $blueGrey: #607D8B;
 }
 
 .label-Open {
-  background-color: $brown;
-  @include label-text-shadow($brown);
+  background-color: $cyan;
+  @include label-text-shadow($cyan);
 }
 .label-Closed,
-.label-Resolved {
-  background-color: $grey;
-  @include label-text-shadow($grey);
-}
+.label-Resolved,
 .label-Deferred,
 .label-OnHold {
-  background-color: $blueGrey;
-  @include label-text-shadow($blueGrey);
+  background-color: $grey;
+  @include label-text-shadow($grey);
 }
 /*******************************************************************************
                                 HANDY COLOR CLASSES
