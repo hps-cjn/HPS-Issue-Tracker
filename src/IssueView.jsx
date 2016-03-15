@@ -11,6 +11,7 @@ var IssueView = React.createClass({
             currentItemId: '',
             activeItemId:''
         }
+
     },
     componentWillReceiveProps: function(nextProps){
         var view = this;
