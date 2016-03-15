@@ -19,6 +19,10 @@
   text-overflow: ellipsis;
 }
 
+@mixin label-text-shadow($color) {
+  text-shadow: 0 1px 1px darken($color, 30%);
+}
+
 /*******************************************************************************
                                 COLOR DEFINITIONS
 *******************************************************************************/
@@ -139,8 +143,9 @@ $blueGrey: #607D8B;
                                 FOUNDATION OVERRIDES
 *******************************************************************************/
 .button {
-  background-color: #5d83aa;
+  background-color: $background-color;
   @include ellipsify();
+  @include label-text-shadow($background-color);
 }
 
 /*******************************************************************************
@@ -209,40 +214,51 @@ $blueGrey: #607D8B;
 
 .label-Defect {
   background-color: $red;
+  @include label-text-shadow($red);
 }
 .label-Question {
   background-color: $green;
+  @include label-text-shadow($green);
 }
 .label-Todo {
   background-color: $indigo;
+  @include label-text-shadow($indigo);
 }
 .label-Change {
   background-color: $blue;
+  @include label-text-shadow($blue);
 }
 .label-FutureEnhancement {
   background-color: $orange;
+  @include label-text-shadow($orange);
 }
 
 .label-High {
   background-color: $deepOrange;
+  @include label-text-shadow($deepOrange);
 }
 .label-Medium {
   background-color: $purple;
+  @include label-text-shadow($purple);
 }
 .label-Low {
   background-color: $brown;
+  @include label-text-shadow($brown);
 }
 
 .label-Open {
   background-color: $brown;
+  @include label-text-shadow($brown);
 }
 .label-Closed,
 .label-Resolved {
   background-color: $grey;
+  @include label-text-shadow($grey);
 }
 .label-Deferred,
 .label-OnHold {
   background-color: $blueGrey;
+  @include label-text-shadow($blueGrey);
 }
 /*******************************************************************************
                                 HANDY COLOR CLASSES
