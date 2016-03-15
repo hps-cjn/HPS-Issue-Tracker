@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var IssueList = require('./IssueList.jsx');
 var TrackerHeading = require('./TrackerHeading.jsx');
 var IssueView = require('./IssueView.jsx');
@@ -29,4 +30,4 @@ var App = React.createClass({
 });
 
 var boom = React.createElement(App, {});
-React.render(boom, document.getElementById('main'));
+ReactDOM.render(boom, document.getElementById('main'));

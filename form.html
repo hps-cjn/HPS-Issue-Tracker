@@ -1,0 +1,89 @@
+<head>
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="390690356389-jc36v9goorudlnko37v3t2ipaskgfa16.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+</head>
+<body>
+    <nav class="menu">
+      <h1 class="name"><i class=""></i> Issue Tracker</a></h1>
+      <ul class="inline-list show-for-medium-up">
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Projects</a></li>
+        <li><a href="#">Activity</a></li>
+      </ul>
+      <ul class="inline-list hide-for-small-only account-action">
+
+      </ul>
+    </nav>
+    <div class="row" id="input-form">
+        <div>
+            <form>
+                <div class="row">
+                    <div class="columns large-12">
+                        <div class="columns large-4  medium-8 large-offset-4">
+                            <label for="project">Project
+                                <input type="text" placeholder="Project" />
+                            </label>
+                            <label for="title">Title
+                                <input type="text" placeholder="Title" />
+                            </label>
+                            <label>Description
+                                <textarea placeholder="Description"></textarea>
+                            </label>
+                            <label>Assigned To
+                                <select>
+                                    <option value="" disabled="">Please Select</option>
+                                    <option value="Eric Weintraub">Eric Weintraub</option>
+                                    <option value="Chris Nascone">Chris Nascone</option>
+                                </select>
+                            </label>
+                            <label for="project">Date Reported
+                                <input type="text" placeholder="Date" />
+                            </label>
+                            <label>Reported By
+                                <select>
+                                    <option value="" disabled>Please Select</option>
+                                    <option value="Eric Weintraub">Eric Weintraub</option>
+                                    <option value="Chris Nascone">Chris Nascone</option>
+                                </select>
+                            </label>
+                            <label>Priority
+                                <select>
+                                    <option value="" disabled>Please Select</option>
+                                    <option value="Critical">Critical</option>
+                                    <option value="High">High</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Low">Low</option>
+                                    <option value="Informational">Informational</option>
+                                </select>
+                            </label>
+                            <label>Type
+                                <select>
+                                    <option value="" disabled="">Please Select</option>
+                                    <option value="Defect">Defect</option>
+                                    <option value="Change">Change</option>
+                                    <option value="Future Enhancement">Future Enhancement</option>
+                                    <option value="Question">Question</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script src="src/data.js"></script>
+<script src="src/script.js"></script>
+<script src="main.js"></script>
+<script>
+  $(document).foundation();
+</script>
+</body>
