@@ -12,11 +12,38 @@
   transform: translateY(20%);
 }
 
+@mixin ellipsify() {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin label-text-shadow($color) {
+  text-shadow: 0 1px 1px darken($color, 30%);
+}
+
+/*******************************************************************************
+                                COLOR DEFINITIONS
+*******************************************************************************/
+
+$background-color: #5d83aa;
+$highlight-color: #ff9933;
+$red: #F44336;
+$pink: #E91E63;
+$orange: #EF6C00;
+$deepOrange: #FF5722;
+$green: #43A047;
+$blue: #2196F3;
+$indigo: #3F51B5;
+$purple: #9C27B0;
+$brown: #795548;
+$grey: #424242;
+$blueGrey: #607D8B;
+
 /*******************************************************************************
                                 NAVIGATION
 *******************************************************************************/
-$background-color: #5d83aa;
-$highlight-color: #ff9933;
 
 .menu {
   background-color: $background-color;
@@ -116,11 +143,9 @@ $highlight-color: #ff9933;
                                 FOUNDATION OVERRIDES
 *******************************************************************************/
 .button {
-  background-color: #5d83aa;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  background-color: $background-color;
+  @include ellipsify();
+  @include label-text-shadow($background-color);
 }
 
 /*******************************************************************************
@@ -139,23 +164,23 @@ $highlight-color: #ff9933;
 }
 
 .Defect {
-    border-left: 6px solid crimson;
+    border-left: 6px solid $red;
 }
 
 .Question {
-    border-left: 6px solid green;
+    border-left: 6px solid $green;
 }
 
 .Change {
-    border-left: 6px solid blue;
+    border-left: 6px solid $blue;
 }
 
 .ToDo {
-    border-left: 6px solid #333;
+    border-left: 6px solid $brown;
 }
 
 .FutureEnhancement {
-    border-left: 6px solid #BF5700;
+    border-left: 6px solid $orange;
 }
 
 .issue.active {
@@ -175,6 +200,66 @@ $highlight-color: #ff9933;
   margin: 0;
 }
 
+.issueHeading {
+  @include ellipsify();
+}
+
+.ribbonItem {
+  font-size: 1.15rem;
+  text-align: center;
+  color: white;
+  padding: 3px 10px 3px 10px;
+  @include ellipsify();
+}
+
+.label-Defect {
+  background-color: $red;
+  @include label-text-shadow($red);
+}
+.label-Question {
+  background-color: $green;
+  @include label-text-shadow($green);
+}
+.label-Todo {
+  background-color: $indigo;
+  @include label-text-shadow($indigo);
+}
+.label-Change {
+  background-color: $blue;
+  @include label-text-shadow($blue);
+}
+.label-FutureEnhancement {
+  background-color: $orange;
+  @include label-text-shadow($orange);
+}
+
+.label-High {
+  background-color: $deepOrange;
+  @include label-text-shadow($deepOrange);
+}
+.label-Medium {
+  background-color: $purple;
+  @include label-text-shadow($purple);
+}
+.label-Low {
+  background-color: $brown;
+  @include label-text-shadow($brown);
+}
+
+.label-Open {
+  background-color: $brown;
+  @include label-text-shadow($brown);
+}
+.label-Closed,
+.label-Resolved {
+  background-color: $grey;
+  @include label-text-shadow($grey);
+}
+.label-Deferred,
+.label-OnHold {
+  background-color: $blueGrey;
+  @include label-text-shadow($blueGrey);
+}
 /*******************************************************************************
                                 HANDY COLOR CLASSES
 *******************************************************************************/
@@ -194,15 +279,4 @@ $highlight-color: #ff9933;
 
 .commentBox p {
   margin: 0;
-}
-
-/*******************************************************************************
-                                HANDY COLOR CLASSES
-*******************************************************************************/
-.background {
-  background-color: $background-color;
-}
-
-.highlight {
-  background-color: $highlight-color;
 }
