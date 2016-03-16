@@ -18,7 +18,7 @@ var App = React.createClass({
     return (
         <div>
           <div className='columns large-8'>
-            <TrackerHeading title="Project Feed" />
+            <TrackerHeading title="Feedject Pro" />
             <IssueList activeId={this.state.activeId}></IssueList>
           </div>
           <div className='columns large-4'>
