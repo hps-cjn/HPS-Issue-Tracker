@@ -12,7 +12,7 @@ var Button = React.createClass({
   },
   render: function() {
     return (
-      <a href={this.props.href} className={'button ' + this.props.className} title={this.props.text}>
+      <a href={this.props.href} className={'button ' + this.props.className} title={this.props.text} onClick={this.props.onClick}>
         <Icon name={this.props.icon} /> {this.props.text}
       </a>
     );
