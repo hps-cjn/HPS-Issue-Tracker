@@ -9,7 +9,10 @@ var Comments = React.createClass({
       showAll: false
     }
   },
-  renderComments: function (item) {
+  componentWillReceiveProps: function () {
+    this.setState({showAll:false});
+  },
+  allComments: function (item) {
     return (
       <div className='commentBox'>
         <h6><strong>{item.user} posted <TimeAgo date={item.date} />:</strong></h6>
@@ -17,8 +20,21 @@ var Comments = React.createClass({
       </div>
     );
   },
+  mostRecent: function () {
+    var len = this.props.replies.length;
+    console.log(len);
+    var item = this.props.replies[len - 1];
+    return (
+      <div>
+        Showing most recent comment of {len}.
+        <div className='commentBox'>
+          <h6><strong>{item.user} posted <TimeAgo date={item.date} />:</strong></h6>
+          <p>{item.comment}</p>
+        </div>
+      </div>
+    );
+  },
   loadMore: function () {
-    console.log(this.state.showAll);
     this.setState({ showAll: true });
   },
   render: function () {
@@ -26,7 +42,7 @@ var Comments = React.createClass({
     return (
       <div>
         <div className='row'>
-          {this.state.showAll == true ? this.props.replies.map(this.renderComments) : false}
+          {this.state.showAll == true ? this.props.replies.map(this.allComments) : x.mostRecent()}
         </div>
         <div className='row'>
           <ButtonGroup classes='expanded'>
