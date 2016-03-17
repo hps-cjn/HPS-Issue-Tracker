@@ -9,8 +9,10 @@ var Comments = React.createClass({
       showAll: false
     }
   },
-  componentWillReceiveProps: function () {
-    this.setState({showAll:false});
+  componentWillReceiveProps: function (nextProps) {
+    if (!isEquivalent(nextProps, this.props)) {
+      this.setState({showAll:false});
+    }
   },
   allComments: function (item) {
     return (
@@ -22,7 +24,6 @@ var Comments = React.createClass({
   },
   mostRecent: function () {
     var len = this.props.replies.length;
-    console.log(len);
     var item = this.props.replies[len - 1];
     return (
       <div>
