@@ -12,7 +12,6 @@ var IssueView = React.createClass({
             currentItemId: '',
             activeItemId:''
         }
-
     },
     componentWillReceiveProps: function(nextProps){
         var view = this;
@@ -48,8 +47,22 @@ var IssueView = React.createClass({
                   <strong>{this.state.d.reportedBy}</strong> opened this issue <strong><TimeAgo date={this.state.d.dateReported} /></strong>
                   <br></br>
                   Assigned to <strong>{this.state.d.currentAssignedTitle}</strong>
-                  <br></br>
-                  Updated {this.state.d.lastUpdated}, Due {this.state.d.dueDate}
+                </div>
+                <div className='row'>
+                  <div className='columns large-3'>
+                      <strong>Updated: </strong>
+                  </div>
+                  <div className="columns large-9">
+                    <TimeAgo date={this.state.d.lastUpdated} />
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className='columns large-3'>
+                      <strong>Due: </strong>
+                  </div>
+                  <div className="columns large-9">
+                    <TimeAgo date={this.state.d.dueDate} />
+                  </div>
                 </div>
                 <div className='row'>
                   <p>{this.state.d.issueDescription}</p>
