@@ -201,6 +201,10 @@ $cyan: #03A9F4;
   margin: 0;
 }
 
+.commentNotifier {
+  font-size: 0.75em;
+}
+
 .issueHeading {
   @include ellipsify();
 }
