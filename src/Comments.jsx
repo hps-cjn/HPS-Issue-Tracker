@@ -38,22 +38,68 @@ var Comments = React.createClass({
   loadMore: function () {
     this.setState({ showAll: !this.state.showAll });
   },
+  handleFieldChange: function(key){
+      return function (e) {
+        var currentState = this.state;
+        currentState[key] = e.target.value;
+        this.setState(currentState);
+      }.bind(this);
+  },
+  handleSubmit: function(){
+    var x = this;
+    var commentObj = {
+      comment: this.state.commentBoxValue,
+      date: new Date(),
+      user: 'Either Eric or Chris'
+    };
+    var r = this.props.replies;
+    r.push(commentObj);
+    var updateObj = {
+      comments: r,
+      id: this.props.activeId
+    };
+    console.log(updateObj);
+    var _this = this;
+    console.log(r);
+    $.ajax({
+      url: "https://hpstracker.azurewebsites.net/api/addComment",
+      data: updateObj,
+      dataType: 'json',
+      type:'PUT',
+      success: function(data){
+        console.log(data);
+        x.setState({
+          commentBoxValue: ''
+        });
+      },
+      error: function(err){
+        console.error(err);
+      }
+    });
+  },
   render: function () {
     var x = this;
     return (
       <div>
         <div className='row'>
           {this.state.showAll == true ? this.props.replies.map(this.allComments) : x.mostRecent()}
+          <div className="commentForm">
+            <textarea
+              placeholder="Add a comment..."
+              value={this.state.commentBoxValue}
+              onChange={this.handleFieldChange('commentBoxValue')}
+            ></textarea>
+          </div>
         </div>
         <div className='row'>
           <ButtonGroup classes='expanded'>
-            <Button text='Comment' icon='pencil' />
             <Button text={this.state.showAll == true ? "Hide Comments" : "Load More Comments"} icon='cloud' onClick={x.loadMore} />
+            <Button text='Comment' icon='pencil' onClick={this.handleSubmit}/>
           </ButtonGroup>
         </div>
       </div>
     );
-  } 
+  }
 });
 
 module.exports = Comments;

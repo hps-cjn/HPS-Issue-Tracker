@@ -70,7 +70,7 @@ var IssueView = React.createClass({
                 <div className='row'>
                   <p>{this.state.d.issueDescription}</p>
                 </div>
-                <Comments replies={this.state.d.comments} />
+                <Comments replies={this.state.d.comments} activeId={this.props.activeId}/>
               </div>
           );
         }
