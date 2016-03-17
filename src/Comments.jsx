@@ -35,7 +35,7 @@ var Comments = React.createClass({
     );
   },
   loadMore: function () {
-    this.setState({ showAll: true });
+    this.setState({ showAll: !this.state.showAll });
   },
   render: function () {
     var x = this;
@@ -47,7 +47,7 @@ var Comments = React.createClass({
         <div className='row'>
           <ButtonGroup classes='expanded'>
             <Button text='Comment' icon='pencil' />
-            <Button text='Load More Comments' icon='cloud' onClick={x.loadMore} />
+            <Button text={this.state.showAll == true ? "Hide Comments" : "Load More Comments"} icon='cloud' onClick={x.loadMore} />
           </ButtonGroup>
         </div>
       </div>
