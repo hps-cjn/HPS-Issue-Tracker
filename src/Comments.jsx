@@ -26,7 +26,7 @@ var Comments = React.createClass({
     var item = this.props.replies[len - 1];
     return (
       <div>
-        Showing most recent comment of {len}.
+        <span className='commentNotifier'>Showing most recent comment of {len}.</span>
         <div className='commentBox'>
           <h6><strong>{item.user} posted <TimeAgo date={item.date} />:</strong></h6>
           <p>{item.comment}</p>
