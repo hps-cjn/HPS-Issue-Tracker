@@ -5,11 +5,12 @@ var ButtonGroup = require('./ButtonGroup.jsx');
 
 var TrackerHeading = React.createClass({
     render: function() {
+        var t = GetParameter('project');
         return (
             <div className='row'>
                 <div className="row">
-                    <div className='large-3 columns y-center'>
-                        <h3>{this.props.title}</h3>
+                    <div className='large-12 columns y-center'>
+                        <h3>{t}</h3>
                     </div>
                 </div>
                 <div className="row">

@@ -4,6 +4,7 @@ var Button = require('./Button.jsx');
 var ButtonGroup = require('./ButtonGroup.jsx');
 var TimeAgo = require('react-timeago');
 var RibbonItem = require('./RibbonItem.jsx');
+var Comments = require('./Comments.jsx');
 
 var IssueView = React.createClass({
     getInitialState: function(){
@@ -15,9 +16,11 @@ var IssueView = React.createClass({
     },
     componentWillReceiveProps: function(nextProps){
         var view = this;
-        this.getFullDetails(nextProps.activeId,function(results){
-            view.setState({d:results[0]});
-        });
+        if (!isEquivalent(nextProps, this.props)){
+            this.getFullDetails(nextProps.activeId,function(results){
+                view.setState({d:results[0]});
+            });
+        }
     },
     getFullDetails: function(id,callback){
         $.ajax({
@@ -67,18 +70,7 @@ var IssueView = React.createClass({
                 <div className='row'>
                   <p>{this.state.d.issueDescription}</p>
                 </div>
-                <div className='row'>
-                  <div className='commentBox'>
-                    <h6><strong>At 9:06AM Jeff Peterson posted:</strong></h6>
-                    <p>Good idea @PeteJefferson! We should definitely have more cat pictures on the portal.</p>
-                  </div>
-                </div>
-                <div className='row'>
-                  <ButtonGroup classes='expanded'>
-                    <Button text='Comment' icon='pencil' />
-                    <Button text='Load More Comments' icon='cloud' />
-                  </ButtonGroup>
-                </div>
+                <Comments replies={this.state.d.comments} activeId={this.props.activeId}/>
               </div>
           );
         }
