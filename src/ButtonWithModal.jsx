@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Icon = require('./Icon.jsx');
 var Modal = require('react-modal');
+var NewItemForm = require('./NewItemForm.jsx');
 
 var Button = React.createClass({
   getDefaultProps: function() {
@@ -32,10 +33,9 @@ var Button = React.createClass({
         <Icon name={this.props.icon} /> {this.props.text}
         <Modal
             isOpen={this.state.modalIsOpen}
-            onRequestClose={this.closeModal}>
-
-            <div>Test</div>
-            <a href="javascript:void(0)" onClick={x.closeModal}>Close</a>
+            onRequestClose={this.closeModal}
+        >
+          <NewItemForm closeModal={this.closeModal}/>
         </Modal>
       </a>
     );

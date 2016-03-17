@@ -145,7 +145,7 @@ $blueGrey: #607D8B;
 .button {
   background-color: $background-color;
   @include ellipsify();
-  @include label-text-shadow($background-color);
+  // @include label-text-shadow($background-color);
 }
 
 /*******************************************************************************

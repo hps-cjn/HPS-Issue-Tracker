@@ -7,7 +7,7 @@ var Issue = React.createClass({
         }
     },
     handleClick: function() {
-      EventSystem.publish('activeId.update', this.props.itemId);
+        EventSystem.publish('activeId.update', this.props.itemId);
     },
     render: function(){
         var style = '';

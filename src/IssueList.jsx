@@ -28,12 +28,13 @@ var IssueList = React.createClass({
     },
     render: function(){
         var ai = this.props.activeId;
+        var mobile = this.props.mobile;
         return (
             <div>
                 <div className="columns large-12">
                     {this.state.data.map(function(item){
                         return (
-                            <Issue activeId={ai} key={item._id} itemId={item._id} d={item} />
+                            <Issue activeId={ai} key={item._id} itemId={item._id} d={item} mobile={mobile}/>
                         );
                     })}
                 </div>
