@@ -34,3 +34,25 @@ function GetParameter(param){
         }
     }
 }
+
+// Check if two objects are equivalent; i.e., they have identical property values
+function isEquivalent(a, b) {
+  var aProps = Object.getOwnPropertyNames(a);
+  var aLen = aProps.length;
+  var bProps = Object.getOwnPropertyNames(b);
+  
+  if (aLen != bProps.length) {
+    return false;
+  }
+  
+  for (var i = 0; i < aLen; i++) {
+    var propName = aProps[i];
+    
+    if (a[propName] !== b[propName]) {
+      return false;
+    }
+  }
+  
+  // If we made it this far, the objects are equivalent
+  return true;
+}

@@ -16,9 +16,11 @@ var IssueView = React.createClass({
     },
     componentWillReceiveProps: function(nextProps){
         var view = this;
-        this.getFullDetails(nextProps.activeId,function(results){
-            view.setState({d:results[0]});
-        });
+        if (!isEquivalent(nextProps, this.props)){
+            this.getFullDetails(nextProps.activeId,function(results){
+                view.setState({d:results[0]});
+            });
+        }
     },
     getFullDetails: function(id,callback){
         $.ajax({

@@ -9,8 +9,10 @@ var Comments = React.createClass({
       showAll: false
     }
   },
-  componentWillReceiveProps: function () {
-    this.setState({showAll:false});
+  componentWillReceiveProps: function (nextProps) {
+    if (!isEquivalent(nextProps, this.props)) {
+      this.setState({showAll:false});
+    }
   },
   allComments: function (item) {
     return (
@@ -22,11 +24,10 @@ var Comments = React.createClass({
   },
   mostRecent: function () {
     var len = this.props.replies.length;
-    console.log(len);
     var item = this.props.replies[len - 1];
     return (
       <div>
-        Showing most recent comment of {len}.
+        <span className='commentNotifier'>Showing most recent comment of {len}.</span>
         <div className='commentBox'>
           <h6><strong>{item.user} posted <TimeAgo date={item.date} />:</strong></h6>
           <p>{item.comment}</p>
@@ -35,7 +36,7 @@ var Comments = React.createClass({
     );
   },
   loadMore: function () {
-    this.setState({ showAll: true });
+    this.setState({ showAll: !this.state.showAll });
   },
   render: function () {
     var x = this;
@@ -47,7 +48,7 @@ var Comments = React.createClass({
         <div className='row'>
           <ButtonGroup classes='expanded'>
             <Button text='Comment' icon='pencil' />
-            <Button text='Load More Comments' icon='cloud' onClick={x.loadMore} />
+            <Button text={this.state.showAll == true ? "Hide Comments" : "Load More Comments"} icon='cloud' onClick={x.loadMore} />
           </ButtonGroup>
         </div>
       </div>
