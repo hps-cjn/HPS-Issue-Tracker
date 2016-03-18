@@ -1,0 +1,269 @@
+/*******************************************************************************
+                                GENERAL
+*******************************************************************************/
+.row {
+  max-width: 100%; }
+
+.y-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(20%); }
+
+/*******************************************************************************
+                                COLOR DEFINITIONS
+*******************************************************************************/
+/*******************************************************************************
+                                SPLASH
+*******************************************************************************/
+.split.button {
+  width: 100%; }
+  .split.button.facebook {
+    background: #3b5998;
+    text-transform: uppercase; }
+    .split.button.facebook span {
+      background: #2d4373; }
+      .split.button.facebook span:after {
+        border: none;
+        font-family: "foundation-icons";
+        content: "\f1c4";
+        font-size: 2rem;
+        line-height: 0.25rem;
+        margin-left: -0.7rem; }
+  .split.button.twitter {
+    background: #55acee;
+    text-transform: uppercase; }
+    .split.button.twitter span {
+      background: #2795e9; }
+      .split.button.twitter span:after {
+        border: none;
+        font-family: "foundation-icons";
+        content: "\f1e4";
+        font-size: 2rem;
+        line-height: 0.25rem;
+        margin-left: -0.7rem; }
+  .split.button.google {
+    background: #d50f25;
+    text-transform: uppercase; }
+    .split.button.google span {
+      background: #a50c1d; }
+      .split.button.google span:after {
+        border: none;
+        font-family: "foundation-icons";
+        content: "\f1ca";
+        font-size: 2rem;
+        line-height: 0.25rem;
+        margin-left: -0.7rem; }
+  .split.button.left-icon {
+    text-align: right; }
+    .split.button.left-icon span {
+      left: 0; }
+
+.valign-middle {
+  height: 100%;
+  display: table-cell; }
+  .valign-middle > .columns {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+  .valign-middle > .columns, .valign-middle > [class*="column"] + [class*="column"]:last-child {
+    float: none; }
+
+/*******************************************************************************
+                                NAVIGATION
+*******************************************************************************/
+.menu {
+  background-color: #5d83aa;
+  padding: 1rem 3rem;
+  height: auto; }
+  .menu .inline-list {
+    text-align: center; }
+    .menu .inline-list li {
+      float: none;
+      display: inline-block;
+      margin: 0 1em; }
+    .menu .inline-list a {
+      color: #fff;
+      padding-bottom: 0.5rem; }
+      .menu .inline-list a:hover {
+        color: #ff9933;
+        transition: all .3s ease-in-out; }
+    .menu .inline-list .active a {
+      color: #ff9933; }
+  .menu .account {
+    position: absolute;
+    top: 3%;
+    right: 3%; }
+    .menu .account a, .menu .account i {
+      color: #fff; }
+  @media only screen and (min-width: 40.063em) {
+    .menu {
+      height: 4rem; }
+      .menu .inline-list {
+        float: left;
+        margin: 0 0 0 1.5rem; }
+      .menu a:hover {
+        border-bottom: 2px solid #ff9933; } }
+  .menu .account-action {
+    float: right;
+    margin: -.75rem 0 0 0; }
+    .menu .account-action li {
+      margin-left: .2rem; }
+    .menu .account-action a {
+      padding: 0.75rem 1rem; }
+    .menu .account-action a.signup {
+      font-weight: bold;
+      background-color: #6d8fb3;
+      border-radius: 3px; }
+
+.name {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  color: #fff; }
+  .name i {
+    color: #ff9933;
+    margin-right: 0.5rem; }
+  @media only screen and (min-width: 40.063em) {
+    .name {
+      float: left; } }
+
+/*******************************************************************************
+                                SIDEBAR
+*******************************************************************************/
+#sidebar {
+  height: 100%;
+  border-left: 1px solid #999; }
+
+/*******************************************************************************
+                                FOUNDATION OVERRIDES
+*******************************************************************************/
+.button {
+  background-color: #5d83aa;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+/*******************************************************************************
+                                ISSUES
+*******************************************************************************/
+.issue {
+  margin: 15px 0 10px 0;
+  padding: 5px 0 5px 0;
+  font-size: 0.8em;
+  height: 8em;
+  background: #f7f7f7;
+  color: #333;
+  border: none;
+  box-shadow: 0 5px 8px -6px rgba(0, 0, 0, 0.3);
+  overflow: hidden; }
+
+.Defect {
+  border-left: 6px solid #F44336; }
+
+.Question {
+  border-left: 6px solid #4CAF50; }
+
+.Change {
+  border-left: 6px solid #2196F3; }
+
+.ToDo {
+  border-left: 6px solid #795548; }
+
+.FutureEnhancement {
+  border-left: 6px solid #EF6C00; }
+
+.issue.active {
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset; }
+  .issue.active .issue-title {
+    font-weight: bold; }
+
+.commentBox {
+  outline: 1px solid #ddd;
+  margin: 10px 0 10px;
+  padding: 7px; }
+
+.commentBox p {
+  margin: 0; }
+
+.commentNotifier {
+  font-size: 0.75em; }
+
+.issueHeading {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.ribbonItem {
+  font-size: 1.15rem;
+  text-align: center;
+  color: white;
+  padding: 3px 10px 3px 10px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.label-Defect {
+  background-color: #F44336;
+  text-shadow: 0 1px 1px #891008; }
+
+.label-Question {
+  background-color: #4CAF50;
+  text-shadow: 0 1px 1px #1e441f; }
+
+.label-Todo {
+  background-color: #3F51B5;
+  text-shadow: 0 1px 1px #171e44; }
+
+.label-Change {
+  background-color: #2196F3;
+  text-shadow: 0 1px 1px #064475; }
+
+.label-FutureEnhancement {
+  background-color: #EF6C00;
+  text-shadow: 0 1px 1px #562700; }
+
+.label-High {
+  background-color: #FF5722;
+  text-shadow: 0 1px 1px #882100; }
+
+.label-Medium {
+  background-color: #9C27B0;
+  text-shadow: 0 1px 1px #2d0b33; }
+
+.label-Low {
+  background-color: #795548;
+  text-shadow: 0 1px 1px #19120f; }
+
+.label-Open {
+  background-color: #03A9F4;
+  text-shadow: 0 1px 1px #01405d; }
+
+.label-Closed,
+.label-Resolved,
+.label-Deferred,
+.label-OnHold {
+  background-color: #424242;
+  text-shadow: 0 1px 1px black; }
+
+/*******************************************************************************
+                                HANDY COLOR CLASSES
+*******************************************************************************/
+.background {
+  background-color: #5d83aa; }
+
+.highlight {
+  background-color: #ff9933; }
+
+.commentBox {
+  outline: 1px solid #ddd;
+  margin: 10px 0 10px;
+  padding: 7px; }
+
+.commentBox p {
+  margin: 0; }
