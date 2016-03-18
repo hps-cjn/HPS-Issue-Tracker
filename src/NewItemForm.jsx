@@ -29,7 +29,7 @@ var NewItemForm = React.createClass({
       var obj = this.state;
       var _this = this;
       $.ajax({
-        url: "https://hpstracker.azurewebsites.net/api/issues",
+        url: "/api/issues",
         data: {d:obj},
         dataType: 'json',
         type:'POST',

@@ -38,16 +38,13 @@ var IssueView = React.createClass({
         } else {
         return (
               <div>
-                <div className='row y-center'>
-                  <h4 className="issueHeading" title={this.state.d.issueTitle}><i className="fa fa-bug fa-2"></i> {this.state.d.issueTitle}</h4>
-                </div>
                 <div className='row'>
                   <RibbonItem text={this.state.d.status} />
                   <RibbonItem text={this.state.d.priority} />
                   <RibbonItem text={this.state.d.type} />
                 </div>
                 <div className='row'>
-                  <strong>{this.state.d.reportedBy}</strong> opened this issue <strong><TimeAgo date={this.state.d.dateReported} /></strong>
+                  {this.state.d.reportedBy} opened this issue <strong><TimeAgo date={this.state.d.dateReported} /></strong>
                   <br></br>
                   Assigned to <strong>{this.state.d.currentAssignedTitle}</strong>
                 </div>
@@ -68,7 +65,12 @@ var IssueView = React.createClass({
                   </div>
                 </div>
                 <div className='row'>
-                  <p>{this.state.d.issueDescription}</p>
+                  <div className="issue-heading"></div>
+                  <div className="issue-text"><p>{this.state.d.issueTitle}</p></div>
+                </div>
+                <div className='row'>
+                  <div className="issue-heading"></div>
+                  <div className="issue-text"><p>{this.state.d.issueDescription}</p></div>
                 </div>
                 <Comments replies={this.state.d.comments} activeId={this.props.activeId}/>
               </div>

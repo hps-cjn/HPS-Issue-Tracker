@@ -8,14 +8,19 @@ var Navigation = require('./Navigation.jsx');
 var IssueHome = require('./IssueHome.jsx');
 
 var App = React.createClass({
-  // getInitialState: function(){
-  //   return({
-  //     loggedIn:false
-  //   });
-  // },
+  getInitialState: function(){
+    return({
+      currentView:'home'
+    });
+  },
   componentWillMount: function(){
     this.checkForCookie();
   },
+  setCurrentView: function(page){
+    this.setState({
+      currentView: page
+    });
+  }.bind(this),
   checkForCookie: function(){
     if(cookies.checkCookie()){
       console.log('cookie exists');
@@ -77,7 +82,13 @@ var App = React.createClass({
   },
   render: function() {
     if(this.state.loggedIn){
-      return (<IssueHome user={this.state.user}/>);
+      switch (this.state.currentView){
+        case 'home':
+          return (<IssueHome user={this.state.user} />);
+        default:
+          return (<Navigation user={this.state.user} nav={setCurrentView}/>);
+      }
+
     } else {
       return (
         <div className='splash-container'>

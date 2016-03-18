@@ -29,11 +29,11 @@ var IssueHome = React.createClass({
         console.log('Unable to determine screen size');
         return;
     }
-
+  },
+  componentWillMount: function(){
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
   },
-
   componentWillUnmount: function() {
     window.removeEventListener('resize', this.handleResize);
   },
@@ -48,6 +48,7 @@ var IssueHome = React.createClass({
       this.setState({modalIsOpen: false});
   },
   render: function() {
+      console.log(this.state.mobile);
       EventSystem.subscribe('activeId.update', this.updateId);
       if(this.state.mobile){
         return (
@@ -80,11 +81,11 @@ var IssueHome = React.createClass({
         <div>
           <div className="columns">
             <div>
-              <div className='columns large-8'>
+              <div className='columns large-8 issue-list'>
                 <TrackerHeading title="Project Feed" />
                 <IssueList activeId={this.state.activeId} clickFunction={this.openModal} mobile={false}></IssueList>
               </div>
-              <div className='columns large-4'>
+              <div className='columns large-4 issue-details'>
                 <IssueView activeId={this.state.activeId}/>
               </div>
             </div>

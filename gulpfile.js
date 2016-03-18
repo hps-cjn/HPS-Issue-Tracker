@@ -79,6 +79,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./'));
 });
 
+var exec = require('child_process').exec;
 gulp.task('server', function (cb) {
   exec('node server.js', function (err, stdout, stderr) {
     console.log(stdout);
@@ -87,8 +88,7 @@ gulp.task('server', function (cb) {
   });
 });
 
-// gulp.task('default', ['build', 'serve', 'sass', 'watch']);
-gulp.task('default', ['build', 'serve', 'sass', 'watch']);
+gulp.task('default', ['build', 'serve', 'sass','watch']);
 
 gulp.task('watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);

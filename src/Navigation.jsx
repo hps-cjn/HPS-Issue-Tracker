@@ -12,7 +12,7 @@ var Navigation = React.createClass({
         <h1 className="name"><i className=""></i> Issue Tracker</h1>
         <ul className="inline-list show-for-medium-up">
           <li><a href="#">Home</a></li>
-          <li className="active"><a href="#">Projects</a></li>
+          <li><a href="#">Projects</a></li>
           <li><a href="#">Issues</a></li>
         </ul>
         <ul className="inline-list hide-for-small-only account-action">
