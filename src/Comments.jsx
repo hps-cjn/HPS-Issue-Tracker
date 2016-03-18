@@ -50,7 +50,7 @@ var Comments = React.createClass({
     var commentObj = {
       comment: this.state.commentBoxValue,
       date: new Date(),
-      user: 'Either Eric or Chris'
+      user: window.user.title
     };
     var r = this.props.replies;
     r.push(commentObj);
@@ -58,16 +58,13 @@ var Comments = React.createClass({
       comments: r,
       id: this.props.activeId
     };
-    console.log(updateObj);
     var _this = this;
-    console.log(r);
     $.ajax({
-      url: "https://hpstracker.azurewebsites.net/api/addComment",
+      url: "/api/addComment",
       data: updateObj,
       dataType: 'json',
       type:'PUT',
       success: function(data){
-        console.log(data);
         x.setState({
           commentBoxValue: ''
         });

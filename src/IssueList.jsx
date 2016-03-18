@@ -14,7 +14,7 @@ var IssueList = React.createClass({
         $.ajax({
              type: "GET",
              dataType: "json",
-             url: "http://hpstracker.azurewebsites.net/api/issues/limited/?project=" + project,
+             url: "/api/issues/limited/?project=" + project,
              success: function(data){
                 callback(data);
              }

@@ -29,6 +29,49 @@ router.use(function(req, res, next) {
 
 // HERE ARE MY ROUTES ==========================================================
 
+// GET USER
+router.route('/user').get(function(req,res){
+  mongodb.MongoClient.connect(uri, function(err, db) {
+    var users = db.collection('users');
+    var searchObj = {};
+    if(req.query.email){
+        searchObj["email"] = req.query.email;
+    }
+    if(req.query.username){
+        searchObj["username"] = req.query.username;
+    }
+    users.find(searchObj).toArray(function(err,docs){
+      if(err) throw err;
+      res.json(docs);
+    });
+  });
+});
+
+// ADD USER
+router.route('/user').post(function(req, res){
+  mongodb.MongoClient.connect(uri, function(err, db) {
+    if(err) throw err;
+    var users = db.collection('users');
+    var o = {
+      username:req.body.username,
+      title:req.body.title,
+      email:req.body.email
+    };
+    users.insert(o,function(err,result){
+      if(err){
+        console.log(err);
+        db.close();
+      } else {
+        res.json(result);
+        db.close();
+      }
+    });
+  });
+});
+
+
+
+
 // GET ALL PROJECTS
 router.route('/projects')
     .get(function(req,res){

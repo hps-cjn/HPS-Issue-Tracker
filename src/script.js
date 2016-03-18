@@ -1,7 +1,75 @@
 
 (function(){
-
+  // CallSharePoint();
 })();
+
+function CallSharePoint(callback) {
+	"use strict";
+  var subscriptionId = "489c022f-75a4-4247-a6c6-c06d52d3236f";
+  var clientId = "b7318824-cf00-46da-a2ce-b7b14d7916aa";
+  var resource = "https://aecio.sharepoint.com";
+
+  window.config = {
+    subscriptionId: subscriptionId,
+    clientId: clientId,
+    postLogoutRedirectUri: window.location.origin,
+    endpoints: {
+      sharepoint: "https://aecio.sharepoint.com/sites/Sales",
+    },
+    cacheLocation: 'localStorage'
+  };
+  var authContext = new AuthenticationContext(config);
+  // Check For & Handle Redirect From AAD After Login
+  var isCallback = authContext.isCallback(window.location.hash);
+  authContext.handleWindowCallback();
+  if (isCallback && !authContext.getLoginError()) {
+    window.location = authContext._getItem(authContext.CONSTANTS.STORAGE.LOGIN_REQUEST);
+  }
+  // If not logged in force login
+  var user = authContext.getCachedUser();
+  if (user) {
+    // Logged in already
+    window.user = {
+      title: user.profile.name,
+      firstName: user.profile.given_name,
+      email: user.profile.upn,
+      username: user.userName
+    };
+		var txt = JSON.stringify(window.user);
+		cookies.setCookie('hpsTrackerUser',txt,14,function(){
+			location.reload();
+		});
+  }
+  else {
+    // NOTE: you may want to render the page for anonymous users and render
+    // a login button which runs the login function upon click.
+    authContext.login();
+  }
+  // Acquire token for Files resource.
+  authContext.acquireToken(resource, function (error, token) {
+    // Handle ADAL Errors.
+    if (error || !token) {
+      console.log('ADAL error occurred: ' + error);
+      return;
+    }
+
+    if(callback){
+      // Add token to local Storage
+      if(token){
+        if(typeof(Storage) !== "undefined") {
+          localStorage.setItem('accessToken',token);
+        }
+        else {
+            console.log('Local Storage not supported');
+        }
+      }
+			console.log(callback);
+      callback();
+
+      //GetMyTasks();
+    }
+  });
+}
 
 function ConcatLongText(chars,text){
     var txt;
@@ -63,3 +131,39 @@ function isEquivalent(a, b) {
   // If we made it this far, the objects are equivalent
   return true;
 }
+
+var cookies = {
+	setCookie: function(cname, cvalue, exdays, callback){
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+		if(callback){
+			callback();
+		}
+	},
+	getCookie: function(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+	},
+	checkCookie: function() {
+    var username = cookies.getCookie('hpsTrackerUser');
+    if (username != '') {
+        return true;
+    }else{
+				return false;
+    }
+	},
+	deleteCookie: function(cname){
+		var d = new Date();
+		d.setTime(d.getTime() + (-1*24*60*60*1000));
+		var expires = "expires="+d.toUTCString();
+		document.cookie = cname + "=" + '' + "; " + expires;
+	}
+};

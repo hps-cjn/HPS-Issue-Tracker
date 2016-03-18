@@ -4,83 +4,95 @@ var IssueList = require('./IssueList.jsx');
 var TrackerHeading = require('./TrackerHeading.jsx');
 var IssueView = require('./IssueView.jsx');
 var Modal = require('react-modal');
+var Navigation = require('./Navigation.jsx');
+var IssueHome = require('./IssueHome.jsx');
 
 var App = React.createClass({
-  getInitialState: function() {
-    return {
-      activeId: '',
+  // getInitialState: function(){
+  //   return({
+  //     loggedIn:false
+  //   });
+  // },
+  componentWillMount: function(){
+    this.checkForCookie();
+  },
+  checkForCookie: function(){
+    if(cookies.checkCookie()){
+      console.log('cookie exists');
+      var u = JSON.parse(cookies.getCookie('hpsTrackerUser'));
+      this.checkIfUserInDatabase(u.email);
+      this.setState({
+        loggedIn:true,
+        user:u.title
+      });
+      window.user = u;
+    } else {
+      console.log('cookie does not exist');
+      this.setState({
+        loggedIn:false
+      });
     }
   },
-  handleResize: function(e) {
-    var w = window.innerWidth;
-    switch (w <= 1024){
-      case  true:
-        if(this.state.mobile != true){
-          this.setState({mobile:true});
-        }
-        return;
-      case false:
-        if(this.state.mobile != false){
-          this.setState({mobile:false});
-        }
-        return;
-      default:
-        console.log('Unable to determine screen size');
-        return;
-    }
+  checkIfUserInDatabase: function(email){
+    var a = this;
+    $.ajax({
+         type: "GET",
+         dataType: "json",
+         url: "/api/user/?email=" + email,
+         success: function(data){
+            console.log(data);
+            console.log(data.length);
+            if(data.length < 1){
+              //a.addUserToDatabase();
+            }
+         }
+     });
   },
-
-  componentWillMount: function() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
+  addUserToDatabase: function(){
+    $.ajax({
+      url: "http://localhost:8000/api/user",
+      data: u,
+      dataType: 'json',
+      type:'POST',
+      success: function(data){
+        console.log('User Added');
+      },
+      error: function(err){
+        console.error(err);
+      }
+    });
   },
-
-  componentWillUnmount: function() {
-    window.removeEventListener('resize', this.handleResize);
-  },
-  updateId: function(id) {
-    this.replaceState({ activeId: id });
-  },
-  openModal: function() {
-      this.setState({modalIsOpen: true}).bind(this);
-  },
-
-  closeModal: function() {
-      this.setState({modalIsOpen: false});
+  handleo365Click: function(){
+    var t = this;
+    CallSharePoint(function(){
+      var txt = JSON.stringify(window.user);
+      cookies.setCookie('hpsTrackerUser',txt,14,function(){
+        console.log('cookie set');
+        t.setState({
+          loggedIn:true,
+          user:window.user.title
+        });
+      });
+    });
   },
   render: function() {
-      EventSystem.subscribe('activeId.update', this.updateId);
-      if(this.state.mobile){
-        return (
-            <div>
-              <div className='columns large-8'>
-                <TrackerHeading title="Project Feed" />
-                <IssueList activeId={this.state.activeId} clickFunction={this.openModal} mobile={this.state.mobile}></IssueList>
-              </div>
-              <div className='columns large-4'>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onRequestClose={this.closeModal}>
-                    <IssueView activeId={this.state.activeId}/>
-                </Modal>
-              </div>
-            </div>
-        );
-      }
-      else {
-        return (
-          <div>
-            <div className='columns large-8'>
-              <TrackerHeading title="Project Feed" />
-              <IssueList activeId={this.state.activeId} clickFunction={this.openModal} mobile={false}></IssueList>
-            </div>
-            <div className='columns large-4'>
-              <IssueView activeId={this.state.activeId}/>
+    if(this.state.loggedIn){
+      return (<IssueHome user={this.state.user}/>);
+    } else {
+      return (
+        <div className='splash-container'>
+          <div className="row valign-middle">
+            <div className="small-5 small-centered columns">
+              <button href="#" className="google button" onClick={this.handleo365Click}> <span></span>Login with Office 365</button>
+              {/*<button href="#" className="facebook left-icon button split"> <span></span>sign in with facebook</button>
+              <button href="#" className="twitter left-icon button split"> <span></span>sign in with twitter</button>
+              <button href="#" className="google left-icon button split"> <span></span>sign in with google +</button>*/}
             </div>
           </div>
-      );
+        </div>);
     }
-    }
+
+  }
 });
 
 var boom = React.createElement(App, {});

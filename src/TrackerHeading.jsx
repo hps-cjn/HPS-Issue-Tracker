@@ -14,7 +14,7 @@ var TrackerHeading = React.createClass({
                     </div>
                 </div>
                 <div className="row">
-                    <div className='large-9 columns y-center'>
+                    <div className='large-12 columns y-center'>
                         <ButtonGroup classes='expanded'>
                         <ButtonWithModal text='File an Issue' icon='pencil' />
                         <Button text='Synergize Cloud' icon='cloud' />

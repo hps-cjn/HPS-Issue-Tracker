@@ -79,6 +79,15 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./'));
 });
 
+gulp.task('server', function (cb) {
+  exec('node server.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
+// gulp.task('default', ['build', 'serve', 'sass', 'watch']);
 gulp.task('default', ['build', 'serve', 'sass', 'watch']);
 
 gulp.task('watch', function () {
