@@ -26,7 +26,7 @@ var IssueView = React.createClass({
         $.ajax({
              type: "GET",
              dataType: "json",
-             url: "http://hpstracker.azurewebsites.net/api/issues/?id=" + id,
+             url: "/api/issues/?id=" + id,
              success: function(data){
                 callback(data);
              }
