@@ -63,11 +63,11 @@ function CallSharePoint(callback) {
             console.log('Local Storage not supported');
         }
       }
-			console.log(callback);
       callback();
 
       //GetMyTasks();
     }
+		location.reload();
   });
 }
 
