@@ -43,33 +43,19 @@ var IssueView = React.createClass({
                   <RibbonItem text={this.state.d.priority} />
                   <RibbonItem text={this.state.d.type} />
                 </div>
-                <div className='row'>
-                  {this.state.d.reportedBy} opened this issue <strong><TimeAgo date={this.state.d.dateReported} /></strong>
-                  <br></br>
-                  Assigned to <strong>{this.state.d.currentAssignedTitle}</strong>
+                <div className='row scootch-top'>
+                  <i className='fi-page-add'></i> Opened <TimeAgo date={this.state.d.dateReported} />
+                </div>
+                {/*<div className='row'>
+                  <i className='fi-clock'></i> Due <TimeAgo date={this.state.d.dueDate} />
+                </div>*/}
+                <div className='row scootch-bottom'>
+                  <i className='fi-arrow-right'></i> Assigned to {this.state.d.currentAssignedTitle}
                 </div>
                 <div className='row'>
-                  <div className='columns large-3'>
-                      <strong>Updated: </strong>
-                  </div>
-                  <div className="columns large-9">
-                    <TimeAgo date={this.state.d.lastUpdated} />
-                  </div>
+                  <div className="issue-text"><strong>{this.state.d.issueTitle}</strong></div>
                 </div>
                 <div className='row'>
-                  <div className='columns large-3'>
-                      <strong>Due: </strong>
-                  </div>
-                  <div className="columns large-9">
-                    <TimeAgo date={this.state.d.dueDate} />
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className="issue-heading"></div>
-                  <div className="issue-text"><p>{this.state.d.issueTitle}</p></div>
-                </div>
-                <div className='row'>
-                  <div className="issue-heading"></div>
                   <div className="issue-text"><p>{this.state.d.issueDescription}</p></div>
                 </div>
                 <Comments replies={this.state.d.comments} activeId={this.props.activeId}/>
